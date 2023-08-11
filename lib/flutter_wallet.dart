@@ -30,8 +30,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
  */
 import 'dart:async';
+
 import 'package:flutter/services.dart';
-import 'package:meta/meta.dart';
 
 class FlutterWallet {
   static const MethodChannel _channel =
@@ -41,7 +41,7 @@ class FlutterWallet {
   ///
   /// - parameters:
   ///    - pkpass: List with <int> values from pkpass file 
-  static Future<bool> addPass({@required List<int> pkpass}) async {
+  static Future<bool> addPass({required List<int> pkpass}) async {
     final bool result = await _channel
         .invokeMethod('addWalletPass', <String, dynamic>{'pkpass': pkpass});
     return result;

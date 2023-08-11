@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter_wallet/flutter_wallet.dart';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_wallet/flutter_wallet.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,7 +44,7 @@ class _MyAppState extends State<MyApp> {
         var result = await FlutterWallet.addPass(pkpass: response.data);
         print(result);
       } catch (e) {
-        print(e.message);
+        print(e);
       }
     } else {
 
@@ -58,7 +59,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Passbook example app'),
         ),
         body: Center(
-          child: RaisedButton(child: Text("Get Passbook"), onPressed: () {
+          child: ElevatedButton(child: Text("Get Passbook"), onPressed: () {
             getPass();
           },),
         ),
